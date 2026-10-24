@@ -1,0 +1,178 @@
+{
+  "name": "refactor-marker",
+  "displayName": "Refactor Marker",
+  "description": "Organize related code ranges across files into colored hierarchies and local function drafts.",
+  "version": "0.2.0",
+  "publisher": "local",
+  "private": true,
+  "license": "UNLICENSED",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished",
+    "onView:refactorMarker.groups"
+  ],
+  "main": "./out/extension.js",
+  "scripts": {
+    "compile": "tsc -p .",
+    "watch": "tsc -watch -p .",
+    "lint": "eslint src",
+    "check": "npm run compile && npm run lint",
+    "vscode:prepublish": "npm run compile",
+    "package": "vsce package --no-dependencies --no-rewrite-relative-links --allow-missing-repository --skip-license --out refactor-marker-0.2.0.vsix"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "refactorMarker.createGroup",
+        "title": "Refactor Marker: Create Group",
+        "icon": "$(add)"
+      },
+      {
+        "command": "refactorMarker.addToExistingGroup",
+        "title": "Refactor Marker: Add to Existing Group",
+        "icon": "$(list-selection)"
+      },
+      {
+        "command": "refactorMarker.exportGroupAsFunction",
+        "title": "Refactor Marker: Export Group as Function",
+        "icon": "$(export)"
+      },
+      {
+        "command": "refactorMarker.renameGroup",
+        "title": "Refactor Marker: Rename Group",
+        "icon": "$(edit)"
+      },
+      {
+        "command": "refactorMarker.changeColor",
+        "title": "Refactor Marker: Change Color",
+        "icon": "$(symbol-color)"
+      },
+      {
+        "command": "refactorMarker.deleteGroup",
+        "title": "Refactor Marker: Delete Group",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "refactorMarker.clearAll",
+        "title": "Refactor Marker: Clear All Groups",
+        "icon": "$(clear-all)"
+      },
+      {
+        "command": "refactorMarker.revealGroup",
+        "title": "Refactor Marker: Reveal Group",
+        "icon": "$(go-to-file)"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "refactorMarker",
+          "title": "Refactor Marker",
+          "icon": "resources/refactor-marker.svg"
+        }
+      ]
+    },
+    "views": {
+      "refactorMarker": [
+        {
+          "id": "refactorMarker.groups",
+          "name": "Refactor Marker"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "refactorMarker.groups",
+        "contents": "Select code in a workspace file, then create a group. Use / in names for hierarchy and add ranges across files.\n[Refactor Marker: Create Group](command:refactorMarker.createGroup)"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "refactorMarker.createGroup",
+          "when": "editorHasSelection && workspaceFolderCount != 0",
+          "group": "refactor@10"
+        },
+        {
+          "command": "refactorMarker.addToExistingGroup",
+          "when": "editorHasSelection && workspaceFolderCount != 0",
+          "group": "refactor@11"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "refactorMarker.createGroup",
+          "when": "view == refactorMarker.groups",
+          "group": "navigation@1"
+        },
+        {
+          "command": "refactorMarker.addToExistingGroup",
+          "when": "view == refactorMarker.groups",
+          "group": "navigation@2"
+        },
+        {
+          "command": "refactorMarker.clearAll",
+          "when": "view == refactorMarker.groups",
+          "group": "navigation@3"
+        },
+        {
+          "command": "refactorMarker.exportGroupAsFunction",
+          "when": "view == refactorMarker.groups",
+          "group": "navigation@4"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "refactorMarker.renameGroup",
+          "when": "view == refactorMarker.groups && viewItem == refactorGroup",
+          "group": "refactor@1"
+        },
+        {
+          "command": "refactorMarker.changeColor",
+          "when": "view == refactorMarker.groups && viewItem == refactorGroup",
+          "group": "refactor@2"
+        },
+        {
+          "command": "refactorMarker.deleteGroup",
+          "when": "view == refactorMarker.groups && viewItem == refactorGroup",
+          "group": "inline@3"
+        },
+        {
+          "command": "refactorMarker.addToExistingGroup",
+          "when": "view == refactorMarker.groups && viewItem == refactorGroup",
+          "group": "refactor@3"
+        },
+        {
+          "command": "refactorMarker.exportGroupAsFunction",
+          "when": "view == refactorMarker.groups && (viewItem == refactorGroup || viewItem == refactorVirtualGroup)",
+          "group": "refactor@4"
+        }
+      ]
+    },
+    "colors": [
+      {
+        "id": "refactorMarker.orangeIcon",
+        "description": "Refactor Marker の Orange グループと色選択に使うオレンジ色。",
+        "defaults": {
+          "dark": "#E69137",
+          "light": "#A65300",
+          "highContrast": "#FFB366",
+          "highContrastLight": "#9C4700"
+        }
+      }
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/vscode": "~1.95.0",
+    "@vscode/vsce": "^4.0.0",
+    "eslint": "^10.13.0",
+    "typescript": "^5.7.0",
+    "typescript-eslint": "^8.0.0"
+  }
+}
