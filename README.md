@@ -1,56 +1,53 @@
 # My Tools
 
-Small developer tools and utilities built to improve development workflows.
-
-## Overview
-
-This repository collects personal tools created to solve practical problems encountered during software development. Each tool lives in its own directory with its own documentation and development setup.
+Small tools for code refactoring and application document generation. Each tool has its own dependencies, setup, and README.
 
 ## Tools
 
-### [Refactor Marker](./refactor-marker/)
+### [Refactor Marker](./refactor-marker/README.md)
 
-A local VS Code extension for organizing related code ranges across files during refactoring. It helps keep track of scattered logic by grouping selected code into named, colored hierarchies.
+A local VS Code extension for organizing code ranges across files into named, colored hierarchies.
 
 - Highlight related ranges across multiple files and navigate to them from a sidebar.
 - Save marker metadata locally in the workspace for use across sessions.
 - Export a hierarchy as a nested TypeScript function draft with source-file comments.
 
-Exported files are refactoring drafts that require manual review and are not guaranteed to compile.
+Exported functions are drafts that require manual review and may not compile. Install locally as a VSIX; see the tool's README for instructions and limitations.
 
-**Status:** Version 0.2.0, intended for internal use and local VSIX installation. Requires VS Code 1.95 or later.
+**Stack:** TypeScript, VS Code Extension API, ESLint.
 
-See the [Refactor Marker README](./refactor-marker/README.md) for usage, limitations, installation, and development instructions (in Japanese).
+### [Resume Builder](./resume-builder/README.md)
 
-## Tech stack
+Create a resume and cover letter from JSON, with shared profile data and application-specific overrides.
 
-- **TypeScript** for the extension implementation.
-- **VS Code Extension API** for commands, editor highlights, and sidebar navigation.
-- **Node.js and npm** for filesystem utilities, dependency management, and build tooling.
-- **ESLint** for source linting.
+- Preview both documents locally with live updates.
+- Keep personal profiles and custom applications in Git-ignored local files.
+- Build standalone HTML with embedded styles, then print to PDF from a browser.
+
+**Stack:** Vue 3, TypeScript, Vite, SCSS, Prettier.
+
+## Getting started
+
+Run commands from the tool's directory, using its package manager:
+
+| Tool            | Requirements                                                        | Install        | Development                               |
+| --------------- | ------------------------------------------------------------------- | -------------- | ----------------------------------------- |
+| Refactor Marker | VS Code 1.95+, Node.js 22.13+ in the 22.x series or Node.js 24, npm | `npm ci`       | `npm run watch`, then press F5 in VS Code |
+| Resume Builder  | Node.js 22.18+ in the 22.x series or 24+, pnpm, a modern browser    | `pnpm install` | `pnpm dev`                                |
+
+For Refactor Marker, open `refactor-marker/` as the VS Code project folder. Run `npm run check` to compile and lint, or `npm run package` to create a local VSIX.
+
+For Resume Builder, open `/resume.html` or `/cover-letter.html` at the address printed by Vite. Run `pnpm build` to check types, run tests, and generate `dist/resume.html` and `dist/cover-letter.html`. See its README for profile setup, application selection, and PDF settings.
 
 ## Repository structure
 
 ```text
 my-tools/
 ├── refactor-marker/
-│   ├── src/
-│   ├── resources/
-│   ├── package.json
-│   └── README.md
+├── resume-builder/
 ├── LICENSE
 └── README.md
 ```
-
-## Getting started
-
-Browse a tool's directory and follow its README for setup and usage.
-
-For Refactor Marker, open `refactor-marker/` as the project folder in VS Code and run its development commands from that directory. Its [README](./refactor-marker/README.md) covers Node.js requirements, building, launching the Extension Development Host, and packaging a local VSIX.
-
-## Status
-
-This repository is actively used for personal developer tools and may grow as additional utilities are created.
 
 ## License
 
