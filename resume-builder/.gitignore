@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+/src/data/profile.development.json
+/src/data/applications/*.json
+!/src/data/applications/sample-company.json
+.verification/
+*.log
+*.pdf
+.DS_Store
+Thumbs.db
+Desktop.ini

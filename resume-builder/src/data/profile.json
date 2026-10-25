@@ -1,0 +1,73 @@
+{
+  "personalInfo": {
+    "name": "[Your Name]",
+    "professionalTitle": "[Your Professional Title]",
+    "location": "[Your Location]",
+    "phone": "[Your Phone Number]",
+    "email": "[Your Email]",
+    "links": [
+      {
+        "id": "linkedin",
+        "label": "LinkedIn",
+        "url": ""
+      }
+    ],
+    "workAuthorization": "[Your Work Authorization]"
+  },
+  "summary": "[Your Summary]",
+  "experience": [
+    {
+      "id": "your-role",
+      "role": "[Your Role]",
+      "company": "[Your Company]",
+      "location": "[Your Location]",
+      "startDate": "[Your Start Date]",
+      "endDate": "[Your End Date]",
+      "bullets": ["[Your Bullet Points]"]
+    }
+  ],
+  "skills": [
+    {
+      "id": "your-skills",
+      "label": "[Your Skills]",
+      "items": ["[Your Skill's Items]"]
+    }
+  ],
+  "projects": [
+{
+"id": "your-project",
+"name": "[Your Project Name]",
+"url": "",
+"repository": "",
+"description": ""
+}
+  ],
+  "education": [
+    {
+      "id": "your-education",
+      "qualification": "[Your Qualification]",
+      "institution": "[Your Institution]",
+      "location": "[Your Location]",
+      "startDate": "[Your Start Date]",
+      "endDate": "[Your End Date]",
+      "details": ["[Your Details]"]
+    }
+  ],
+  "certifications": [],
+  "languages": [
+    {
+      "id": "your-language",
+      "name": "[Your Language]",
+      "proficiency": "[Your Proficiency]"
+    }
+  ],
+  "sectionOrder": [
+    "summary",
+    "experience",
+    "skills",
+    "projects",
+    "education",
+    "languages",
+    "certifications"
+  ]
+}

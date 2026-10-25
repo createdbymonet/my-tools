@@ -1,0 +1,118 @@
+:root {
+  font-family: Arial, 'Liberation Sans', Helvetica, sans-serif;
+  color: #24201f;
+  font-synthesis: none;
+  --accent: #38B2AC;
+  --muted: #6B7C7C;
+  --rule: #F1F5F5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #F8FAFA;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+// Shared by the resume and cover-letter pages and their content components.
+.document {
+  width: 8.5in;
+  min-height: 11in;
+  background: #fff;
+  font-size: 9.5pt;
+  line-height: 1.3;
+  box-shadow:
+    0 2px 5px #372b2310,
+    0 14px 40px #372b2310;
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  p {
+    margin: 3px 0;
+  }
+
+  h2 {
+    font-size: 11pt;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin: 8px 0 3px;
+    padding-bottom: 1px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  ul {
+    margin: 2px 0 5px;
+    padding-left: 16px;
+  }
+
+  li {
+    margin: 1.5px 0;
+  }
+
+  .sub {
+    color: var(--muted);
+    margin: 0 0 2px;
+  }
+}
+
+.document-content {
+  padding: 3mm 16mm 8mm;
+}
+
+// Shared by ExperienceSection and EducationSection.
+.entry-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 6px;
+
+  h3 {
+    margin: 0;
+    font-size: inherit;
+    font-weight: 600;
+  }
+}
+
+.dates {
+  flex-shrink: 0;
+  color: var(--muted);
+  font-size: 9.3pt;
+  font-weight: 400;
+}
+
+@media screen and (max-width: 860px) {
+  .document {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .document-content {
+    padding-left: 7mm;
+    padding-right: 7mm;
+  }
+
+  .entry-heading {
+    flex-wrap: wrap;
+    gap: 1px 8px;
+  }
+
+  .dates {
+    white-space: normal;
+  }
+}

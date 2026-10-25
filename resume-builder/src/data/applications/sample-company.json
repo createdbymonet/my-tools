@@ -1,0 +1,21 @@
+{
+  "company": {
+    "name": "[Company name]",
+    "position": "[Position title]",
+    "location": "[Company city, province]",
+    "hiringManager": ""
+  },
+  "resume": {},
+  "coverLetter": {
+    "date": "2026-10-25",
+    "recipient": "Hiring Manager",
+    "greeting": "Dear Hiring Manager,",
+    "opening": "I am writing to apply for the [Position title] position at [Company name]. [Explain what interests you about this role and the company's work.]",
+    "body": [
+      "[Connect one or two examples from your experience to this position's requirements. Explain your contribution and the result, using only details you can verify.]",
+      "[Explain why your background is a good fit for this company, its product, or the people it serves.]"
+    ],
+    "closing": "Thank you for considering my application. I would welcome the opportunity to discuss how I could contribute to your team.",
+    "signOff": "Sincerely,"
+  }
+}

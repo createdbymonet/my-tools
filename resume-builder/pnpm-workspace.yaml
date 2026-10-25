@@ -1,0 +1,5 @@
+# Keep package-manager commands and the lockfile local to this project.
+packages:
+  - '.'
+allowBuilds:
+  '@parcel/watcher': true

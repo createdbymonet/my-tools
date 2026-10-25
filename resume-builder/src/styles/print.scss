@@ -1,0 +1,57 @@
+// Continuation pages receive top/bottom spacing; the first keeps its full-width band.
+@page {
+  size: Letter;
+  margin: 10mm 0;
+}
+
+@page :first {
+  margin-top: 0;
+}
+
+@media print {
+  :root {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    background: #fff;
+  }
+
+  .document {
+    width: auto;
+    min-height: 0;
+    box-shadow: none;
+    margin: 0;
+
+    h2,
+    .sub {
+      break-after: avoid;
+    }
+
+    li {
+      break-inside: avoid;
+    }
+
+    p,
+    li {
+      orphans: 3;
+      widows: 3;
+    }
+
+    a {
+      text-decoration: none;
+
+      &::after {
+        content: none;
+      }
+    }
+  }
+
+  .entry-heading {
+    break-after: avoid;
+  }
+}
